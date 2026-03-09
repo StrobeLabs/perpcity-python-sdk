@@ -17,7 +17,6 @@ def main():
     print("Creating new perpetual market...")
 
     params = CreatePerpParams(
-        starting_price=1.0,
         beacon=beacon,
     )
 

@@ -161,7 +161,7 @@ class PerpCityContext:
         def _fetch() -> LiveDetails:
             result = self._perp_manager.functions.quoteClosePosition(position_id).call()
 
-            unexpected_reason, pnl, funding, net_margin, was_liquidated = result
+            unexpected_reason, pnl, funding, net_margin, was_liquidated, _notional = result
 
             if unexpected_reason != b"" and unexpected_reason != "0x":
                 raise PerpCityError(
