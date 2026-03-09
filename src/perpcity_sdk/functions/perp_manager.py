@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 from ..types import CreatePerpParams, OpenMakerPositionParams, OpenTakerPositionParams
 from ..utils.approve import approve_usdc
 from ..utils.constants import NUMBER_1E6
-from ..utils.conversions import price_to_sqrt_price_x96, price_to_tick, scale_6_decimals
+from ..utils.conversions import price_to_tick, scale_6_decimals
 from ..utils.errors import PerpCityError, with_error_handling
 from .open_position import OpenPosition
 
@@ -16,7 +16,6 @@ if TYPE_CHECKING:
 
 def create_perp(context: PerpCityContext, params: CreatePerpParams) -> str:
     def _create() -> str:
-        sqrt_price_x96 = price_to_sqrt_price_x96(params.starting_price)
         deployments = context.deployments()
 
         fees_addr = params.fees or deployments.fees_module
@@ -37,7 +36,6 @@ def create_perp(context: PerpCityContext, params: CreatePerpParams) -> str:
             margin_ratios_addr,
             lockup_period_addr,
             sqrt_price_impact_addr,
-            sqrt_price_x96,
         )
 
         contract_fn = context._perp_manager.functions.createPerp(contract_params)

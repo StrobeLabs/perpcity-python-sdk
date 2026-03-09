@@ -134,7 +134,6 @@ class ClosePositionResult:
 
 @dataclass
 class CreatePerpParams:
-    starting_price: float
     beacon: str
     fees: str | None = None
     margin_ratios: str | None = None
