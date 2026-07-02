@@ -20,10 +20,11 @@ from perpcity_sdk import PerpCityContext, open_taker_position, OpenTakerPosition
 
 # Initialize context
 context = PerpCityContext(
-    rpc_url="https://base-sepolia.g.alchemy.com/v2/YOUR_KEY",
+    rpc_url="https://arb-sepolia.g.alchemy.com/v2/YOUR_KEY",
     private_key="0xYOUR_PRIVATE_KEY",
     perp_manager_address="0xPERP_MANAGER",
     usdc_address="0xUSDC",
+    chain_id=421614,  # Arbitrum Sepolia; the default predates the Arbitrum deployment
 )
 
 # Fetch market data
@@ -53,7 +54,7 @@ print(f"PnL: ${details.pnl:.2f}")
 ### PerpCityContext
 
 ```python
-context = PerpCityContext(rpc_url, private_key, perp_manager_address, usdc_address, chain_id=84532)
+context = PerpCityContext(rpc_url, private_key, perp_manager_address, usdc_address, chain_id=421614)
 ```
 
 **Methods:**
@@ -89,7 +90,7 @@ context = PerpCityContext(rpc_url, private_key, perp_manager_address, usdc_addre
 ## Environment Variables
 
 ```
-RPC_URL=https://base-sepolia.g.alchemy.com/v2/YOUR_KEY
+RPC_URL=https://arb-sepolia.g.alchemy.com/v2/YOUR_KEY
 PRIVATE_KEY=0xYOUR_PRIVATE_KEY
 PERP_MANAGER_ADDRESS=0xYOUR_PERP_MANAGER
 USDC_ADDRESS=0xYOUR_USDC
