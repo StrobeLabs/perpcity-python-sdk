@@ -24,6 +24,7 @@ context = PerpCityContext(
     private_key="0xYOUR_PRIVATE_KEY",
     perp_manager_address="0xPERP_MANAGER",
     usdc_address="0xUSDC",
+    chain_id=421614,  # Arbitrum Sepolia; the default predates the Arbitrum deployment
 )
 
 # Fetch market data
